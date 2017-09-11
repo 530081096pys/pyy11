@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS 第六天</title>
+</head>
+<body>
+	<script>
+		// 闭包函数
+function fn(){
+    var num = 10;
+    return fn1;
+     function  fn1(){
+     	num ++
+     	return num;
+     }
+}
+var result = fn();
+alert (result());
+
+
+// 箭头函数
+var vn5 = a => a;
+document.write(vn5(3));
+
+var vn3 = (a,b) => {
+	alert(a+b);
+	alert (a-b);
+	return [a,b];
+}
+alert(vn3(1,5));
+
+// let 
+var arr =[];
+for (var i = 0;i<10;i++){
+	arr[i] = function(){
+		 alert(i);
+	}
+}
+arr[2]();
+
+// 内置 顶层 函数
+let str = "张三";
+console.log(escape(str));
+
+console.log(unescape("%u5F20%u4E09"));
+
+console.log(Number(null));
+console.log(Number(undefined));
+console.log(Number("00123"));
+console.log(Number("123"));
+console.log(Number("100px"));
+
+console.log(String(236));
+console.log(String("ade"));
+
+console.log(Boolean(""));
+console.log(Boolean("aa"));
+
+console.log(parseInt("100px"));
+console.log(parseInt("  -100px"));
+console.log(parseInt("  -100.5px"));
+
+console.log(parseFloat("100.5px"));
+
+console.log(isNaN(undefined));
+
+
+// 对象
+let zhangsan1  = {
+
+}
+alert(typeof zhangsan1);
+
+function Person (){
+
+}
+let zhangsan2 = new Person()
+alert(typeof zhangsan2)
+
+// 赋值
+zhangsan2.name = "zhangsan";
+zhangsan2.age = 18
+zhangsan2.laa = "lala"
+
+alert(typeof zhangsan2.age)
+
+// 访问
+alert(zhangsan2.name);
+alert(zhangsan2.age);
+console.log(zhangsan2.laa)
+	</script>
+</body>
+</html>
