@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS第七天练习</title>
+</head>
+<body>
+<!-- 	<script>
+		// 创建类
+		function Iphone (color,size,price,designer){
+			this.color = color;
+	        this.size = size;
+	        this.price = price;
+	        this.designer = designer;
+	        this.newitem = function(value){
+		         alert(value);
+		        }
+		    }
+		    let iphone8 = new Iphone("黑色","6.5",8888,"Mr.right");
+            let iphone8s = new Iphone("白色","6.9",9888,"Miss.right");
+            console.log(iphone8);
+            console.log(iphone8s);
+            iphone8.newitem("脸部识别");
+
+        // jeson 创建类
+        let iphone9 = {
+        	color : "金色",
+        	size  : 6.6,
+        	price : 5555,
+        	designer : "Mr.rihgt",
+        	newitem : function(){
+        		alert ("心灵感应")
+        	},
+        };
+        console.log(iphone9.color);
+        iphone9.newitem();
+
+        // 对象的遍历
+        for (let i in iphone9){
+        	console.log(`${i}——${iphone9[i]}`)
+        }
+
+        // class对象创建
+        class IPhone {
+        	constructor(color,size,price){
+        		this.color = color ;
+        		this.size = size;
+        		this.price = price;
+        	};
+        	newit(value){
+        		alert(value);
+        	};
+        };
+        let iphone10 = new IPhone ("粉色",5.8,8888);
+        console.log(iphone10);
+        iphone10.newit("天才");
+
+        // 原型对象
+        function Person (name,age,sex){
+        	this[-1] = "a";//负数也可以
+        	this.name =name ;
+        	this.age=age;
+        	this.brain = `${this.name}脑子`;
+        	this.sex = sex ;
+        	this.say = function (value){
+        		alert(value)
+        	}
+        	this.study = function (){
+        		alert (this.brain)
+        	}
+        	this.speech = function (value){
+        		this.say(value);
+        	}
+        }
+        let zhangsan = new Person("zhangsan",22,"man");
+        console.log(zhangsan);
+        zhangsan.study();
+        zhangsan.speech("演讲");
+	</script> -->
+
+    <!-- 对象案例 my Array -->
+	<script>
+		function MyArray (){
+			for (let i = 0;i < arguments.length;i++){
+				this[i] = arguments[i];
+			}
+			this.length = arguments.length;
+
+			// 添加
+			this.push = function (){
+				for (let i = 0;i<arguments.length;i++){
+					this[this.length] = arguments[i];
+					this.length++;
+				}
+			}
+
+			//首个位置
+			this.indexOf = function (value){
+				for(let i = 0;i<this.length;i++){
+					if (this[i] == value){
+						return i;
+					}
+				}
+				return -1;
+			}
+          
+            // 最后的位置
+            this.lastIndexOf = function (value){
+            	for (let i = this.length-1;i>-1;
+            		i--){
+            		if (this[i] == value) {
+            			return i;
+            		}
+            	}
+            	return -1;
+            }
+
+            // includes
+            this.includes = function (value){
+            	for (let i = 0;i < this.length;i++){
+            		if (this[i] == value) {
+            			return true;
+            		}
+            	}
+            	return false;
+            }
+
+            //some
+            this.some = function (fn){
+            	for (let i = 0;i<this.length;i++){
+            		if (fn(this[i])){
+            			return true;
+            		}
+            	}
+            	return false;
+            }
+
+            // every
+            this.every = function (fn){
+            	for (let i =0 ;i<this.length;i++){
+            		if (!fn(this[i]))
+            			return false;
+            	}
+            	return true;
+            }
+
+            // reverse
+            this.rever = function (){
+            	var newarr = [];
+            	for(let i = this.length-1;i>-1;i--){
+            		newarr[newarr.length] = this[i]
+            	}
+            	return newarr;
+            }
+
+            // filter
+            this.filter = function (fn){
+            	var newarr = [];
+            	for (let i = 0;i<this.length;i++){
+            		if(fn(this[i])){
+            			newarr[newarr.length]=this[i];
+            		}
+            	}
+            	return newarr;
+            }
+
+            // map
+            this.map = function (fn){
+            	var newarr = [];
+            	for (let i=0;i<this.length;i++){
+            		newarr[newarr.length] = fn(this[i]);
+            	}
+            	return newarr;
+            } 
+
+            // join
+            this.join = function(str){
+                var newa = ""
+                for (let i = 0;i<this.length;i++){
+                	if (i<this.length-1){
+                		newa += this[i] + str
+                	}else{
+                		newa += this[i];
+                	}
+                }
+                return newa;
+            }
+
+            // sort
+            this.sortup = function(){
+            	
+            }
+		}
+		let arr = new MyArray (1,3,3,5,6);
+		console.log(arr);
+	    // arr.push("a","b","c");
+	    // console.log(arr);
+
+	    let result = arr.indexOf(4);
+	    console.log(result);
+
+        let result1 = arr.lastIndexOf(3);
+	    console.log(result1);
+
+	    let result2 = arr.includes("a");
+	    console.log(result2);
+
+	    let result3 = arr.some(function(value){
+	    	return typeof value == "number";
+	    })
+	    console.log(result3);
+
+	    let result4 = arr.every(function(value){
+	    	return  value > 0;
+	    })
+	    console.log(result4);
+
+	    let result5 = arr.rever();
+	    console.log(result5);
+
+	    let result6 = arr.filter(function(value){
+	    	return value > 4;
+	    })
+	    console.log(result6);
+
+	    let result7 = arr.map(function(value){
+	    	return value * 2;
+	    })
+	    console.log(result7);
+
+	    let result8 = arr.join("+");
+	    console.log(result8)
+	</script>
+</body>
+</html>
