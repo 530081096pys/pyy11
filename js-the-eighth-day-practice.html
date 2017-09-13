@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-the-seventh-day-practice.html</title>
+</head>
+<body>
+	<!-- 原型函数 -->
+	<script>
+		function Person (){
+			this.name ="zhangsan";
+			this.age = 20;
+			this.eat =function (){
+				alert("delicious")
+			}
+		}
+		Person.prototype = {
+			sleep : function (){
+				alert ("goodnight")
+			},
+			study : function (){
+				alert("renzhen")
+			},
+		};
+		Person.prototype.aa = function (){
+                alert("display");
+                // 原型对象添加属性的方法
+		}
+		let zhangsan = new Person();
+		console.log(zhangsan);
+		let lisi = new Person();
+		console.log(lisi);
+		console.log(zhangsan.eat==lisi.eat);
+		console.log(zhangsan.sleep == lisi.sleep);
+		// console.log(zhangsan.aa());
+		// 原型对象中的属性地址大家公用
+		// 构造函数的属性地址分别赋给类化对象
+		
+		// 删除
+		delete zhangsan.name;
+
+		// 判断
+		console.log(zhangsan instanceof Array);
+		console.log(zhangsan instanceof Person);
+	</script>
+
+	<!-- 继承 -->
+	<script>
+		function Person (){
+			this.name = "lala";
+			this.age = 20;
+			this.birthday = "1994-12-28";
+			this.say = function (){
+				alert("nothing");
+			};
+		};
+		function Student (){
+			this.class = 1707;
+			this.lover = "study";
+			this.hobby = "sleep";
+			this.teacher = function (){
+				alert("miss.Li")
+			};
+		};
+		Student.prototype = new Person;
+		// 原型对象的继承要在实例化前面
+		let wangwu = new Person();
+		let zhaoliu = new Student();
+		console.log(wangwu);
+		console.log(zhaoliu);
+	</script>
+    
+    <!-- 字符串 方法 -->
+	<script>
+		let str = "abcdefghigck"
+		console.log(str);
+		console.log(str.constructor);
+		console.log(str.__proto__);
+		console.log(str.length);
+		console.log(str.charAt(1));
+		console.log(str.charCodeAt(1));
+		console.log(String.fromCharCode(99));
+		console.log(str.indexOf("c"));
+		console.log(str.lastIndexOf("c"));
+		console.log(str.includes("z"));
+		console.log(str.slice(1,5));
+		console.log(str.substring(1,5));
+		console.log(str.substr(1,5));
+		console.log(str.replace("ab","12"))
+		console.log(str.repeat(2));
+		console.log(str.match("gh"));
+		console.log(str.toUpperCase());
+		console.log(str.toLowerCase());
+
+		let str2 = "  adfsf  ";
+		console.log(str2);
+		console.log(str2.trim());
+		console.log(str2.trimLeft());
+		console.log(str2.trimRight());
+
+		let str3 = "a-de-dd-ddd-ff";
+		console.log(str3.split("-",5))
+	</script>
+    
+    <!-- 字符串 多处代替 -->
+	<script>
+		let str4 = "adfdsadgegadsdadf";
+        function replaceAll (str,newstr){
+        	  let star = "";
+              for (let i = 0;i<newstr.length;i++){
+                  star += "*";
+              }
+              while(str.includes(newstr)){
+              	 str = str.replace(newstr,star);
+              }
+              return str;
+        }
+        let result2 = replaceAll(str4,"ad");
+        console.log(result2);
+	</script>
+
+	<!-- 字符串查找所有位置 -->
+	<script>
+		// while
+		let url = "https//www.baidu.comhttps//www.baidu.comhttps//www.baidu.comhttps//www.baidu.comhttps//www.baidu.comhttps//www.baidu.com" ;
+		function homework (url,ostr){
+			let star ="";
+			for (let i =0;i<ostr.length;i++){
+				star += "*";
+			}
+			let newarr = [];
+			while(url.includes(ostr)){
+               newarr.push(url.indexOf(ostr));
+               url = url.replace(ostr,star);
+			}
+			return newarr;
+		}
+		let result5 = homework(url,"baidu");
+		console.log(result5);
+
+		// if
+		function homework1 (url,ostr){
+			let newarr = [];
+			for (let i= 0;i<url.length;i++){
+				if(url.slice(i,i+5) == ostr){
+					newarr.push(i);
+				}
+			}
+			return newarr;
+		}
+		let result6 = homework1(url,"baidu");
+		console.log(result6);
+	</script>
+</body>
+</html>
