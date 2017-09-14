@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-the-ninth-day-practice</title>
+</head>
+<body>
+<!-- 	<script>
+		// 合并两个数组
+		let arr1 =["a","b","c","d"];
+		let arr2 =[1,2,3,4,5,6];
+		// arr1.push(...arr2);
+		// console.log(arr1);
+
+		for (let i =0 ;i<arr2.length;i++){
+			arr1.push(arr2[i]);
+		}
+		console.log(arr1);
+
+		let arr3 = new Array(5);
+		console.log(arr3);
+
+		let arr4 = Array.of(5,5,3);
+		console.log(arr4);
+
+		console.log(arr4.length);
+		console.log(arr4.constructor);
+
+		arr2.push(11,25,33);
+		console.log(arr2);
+		console.log(arr2.push(11,25));
+
+		arr2.unshift(55,66,88);
+		console.log(arr2);
+
+		arr2.pop();
+		console.log(arr2);
+
+		arr2.splice(1,2,88,55);
+		console.log(arr2);
+
+		let newarr = arr2.concat(arr4);
+		console.log(newarr);
+
+		
+		console.log(arr4.join("+"));
+		console.log(arr4.reverse());
+
+		let arr7 = [5,6,3,12,55,66];
+		let result5 = arr7.sort(function(a,b){
+               return a - b < 0;
+		});
+        console.log(result5);
+	</script> -->
+
+	<script>
+		// 去重复第一种方法
+		let arr6 = [2,3,6,8,2,3,5,9,2,3];
+		function exeta (arr){
+			let newarr = [];
+			for (let i =0;i<arr.length;i++){
+				if(!newarr.includes(arr[i])){
+					newarr.push(arr[i]);
+				}
+			}
+			return newarr;
+		}
+		let result = exeta(arr6);
+		console.log(result);
+
+		// 第二种
+		function exeta1 (arr){
+			let newarr = [];
+			for (let i =0;i<arr.length;i++){
+				let flag = true;
+				for(let j = i+1;j<arr.length;j++){
+					if(arr[i] == arr[j]){
+						flag = false;
+						break;
+					}
+				}
+				if (flag){
+					newarr.push(arr[i]);
+				}
+			}
+			return newarr
+		}
+		let result1 = exeta1(arr6);
+		console.log(result1);
+
+		// 随机取3个值
+let arr7 = ["a","b","c","d","e","f"];
+function choose (arr){
+	let newarr = [];
+    for (let i = 0;i<3;i++){
+      newarr.push(arr[Math.floor(Math.random()*arr.length)]);
+    }
+    return newarr;
+}
+let result10 = choose(arr7);
+console.log(result10);
+
+// 随机取3个不重复的值
+ let arr8 = ["a","b","c","d","e","f"];
+function choose1 (arr,sum){
+	let newarr = [];
+    for (let i = 0;i<sum;i++){
+        let index = Math.floor(Math.random()*arr.length);
+        while (newarr.includes(arr[index])){
+        	 index = Math.floor(Math.random()*arr.length);
+        }
+        newarr.push(arr[index]);
+        }
+        return newarr;
+    }
+let result11 = choose1(arr8,3);
+console.log(result11);
+
+// 随即取3个不重复的值 第二种
+let arr9 = ["a","b","c","d","e","f"];
+function choose2 (arr,sum){
+	let newarr = [];
+    for (let i = 0;i<sum;i++){
+        let index = Math.floor(Math.random()*arr.length);
+        if(newarr.includes(arr[index])){
+        	i--;
+        }else{
+        	newarr.push(arr[index]);
+        }
+    }
+    return newarr;
+}
+let result12 = choose2(arr9,3);
+console.log(result12);
+	</script>
+</body>
+</html>
