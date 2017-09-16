@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bom1</title>
+</head>
+<style>
+	button{
+		font-size: 14px;
+		background: blue;
+		padding: 3px 5px;
+		color: orange;
+		border: none;
+		border-radius: 5px;
+	}
+</style>
+<body>
+     <a href="bom.html"><h1>这是bom1.html</h1></a>
+	<button id="forward">前进</button>
+	<button id= "back">后退</button>
+	<button id="refresh">刷新</button>
+
+		<script>
+	  let forward =	document.getElementById("forward");
+	  forward.onclick = function(){
+	  	// alert(1);
+	  	history.forward();
+	  }
+	  let back = document.getElementById("back");
+	  back.onclick = function(){
+	  	history.back();
+	  }
+
+      let new1 = document.getElementById("refresh");
+	  new1.onclick = function(){
+	  	history.go(0);
+	  }
+	  alert(history.length);
+	</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bom</title>
+</head>
+<body>
+	<script>
+	    // 浏览器距离屏幕左边的距离
+		// window.screenLeft
+		// window.screenX
+
+		// 可见区域的宽高 视口 放大缩小时会改变
+		// alert(window.innerWidth);
+		// alert(window.innerHeight);
+        
+  //       // 获取整个浏览器的宽高
+		// alert(window.outerWidth);
+
+		// // IE兼容方法 client 客户端的意思
+		// document.documentElement.clientWidth
+		// document.documentElement.clientHeight
+        
+        // 关系类
+        // window.frames //获取所有窗口
+        // window.top
+        // window.parent
+        // window.self 
+        // window == self 
+        // 可以省掉window
+        
+        // 方法 有，不让用
+        // moveTo(100, 200);
+        // resizeTo(300, 300);
+        // moveBy(100, 100)//向方向移动
+        
+        // 按照指定周期执行函数 开启一个时间函数
+        // window.setInterval(function(){},毫秒)
+        //第一个传回调函数，第二个是指令的周期，时间是毫秒 1000毫秒 = 1S 最小只能写4
+        //
+        // function fn (){
+        	// alert (1)
+        // }
+        // window.setInterval(fn,1000);
+        // window.setInterval(()=>{alert(1)},1000);
+
+        // 结束一个时间函数
+        // window.clearInterval(t)
+        //将要删掉的东西给一个变量 然后删掉变量
+        //
+        //
+        //在指定周期后 执行一次 
+       // let t = window.setTimeout(fn,1000);
+        // window.clearTimeout(t)
+
+        // 递归模拟
+        // var fn =function (){
+        	// alert(1);
+        	// setTimeout(fn,1000);
+        // }
+        // fn();
+
+        // 提示信息
+        // confirm("确定退出么");
+
+        // 其他
+        // open(打开的地址，新窗口名字，修饰，布尔值是否要有历史记录);
+
+        // close();//关闭当前窗口
+
+        // 历史记录
+        // window是一个全局对象 都会指到window里面
+        // window.history //也是个对象，里面有很多属性和方法
+        // length  长度， forward 前进 back 后退   go（0是刷新）能前能后
+        // history.back() 
+        // history.forward()
+	</script>
+     <a href="bom1.html"><h1>这是bom.html</h1></a>
+	<button id="forward">前进</button>
+	<button id= "back">后退</button>
+	<button id="refresh">刷新</button>
+
+	<!-- jS写到最后面 -->
+
+<!-- 	<script>
+	  let forward =	document.getElementById("forward");
+	  forward.onclick = function(){
+	  	// alert(1);
+	  	history.forward();
+	  }
+	  let back = document.getElementById("back");
+	  back.onclick = function(){
+	  	history.back();
+	  }
+	  
+	  let new1 = document.getElementById("refresh");
+	  new1.onclick = function(){
+	  	history.go(0);
+	  }
+	  alert(history.length);
+	</script> -->
+
+	<script>
+		// url 统一资源定位符 uniform resource locator 
+		
+		// location.href = "http://www.baidu.com"
+		// location.protocol 协议
+		// location.host  主机
+		// location.hostname 主机名
+		// location.port 端口号 相当于门
+		// location.pathname 路径 /s 到了以后找你的路径
+		
+		// location.search  ? name =zhangsan&属性=值&
+		// location.hash  对应锚点
+		
+		// location.assign(地址);换地址，重新加载或跳转
+		
+
+		// location.reload(重新加载，若不传参或false，利用本地资源 );若值是true，不利用本地，重新加载。
+		
+
+		// location.replace(地址);替换，不留下历史记录
+	</script>
+</body>
+</html>
