@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS重温练习</title>
+</head>
+<body>
+<!-- 	<script>
+		var f ="apple";
+		var g ="appld";
+		var h = f>g;
+		console.log(h);
+		var aa = "aa";
+		var bb = "bb";
+		alert(aa && bb);
+	</script> -->
+
+<!-- 	<script>
+	    // 列表
+		function table (sum,sum2){
+			let table = "<table>";
+			for (let i = 1;i<=sum;i++){
+				table = table + "<tr>";
+				for(let j =1;j<=sum2;j++){
+					table += "<td>"+j+"*"+i+"="+(i*j)+"</td>";
+				}
+				table += "</tr>"
+			}
+			table += "</table>";
+			document.write(table);
+		}
+		table(10,10);
+        
+        // 金字塔
+		for(var i =0;i<=10;i++){
+			for (var a = 1;a<=10-i;a++){
+				document.write("&nbsp");
+			}
+			for(var j = 1;j<=2*i-1;j++){
+				document.write("*");
+			}
+			document.write("<br/>")
+		}
+
+		// 斐波那契数列
+		var i =0,j=1;
+		for (var k=1;k<=100;){
+             document.write(k+"&nbsp");
+             k = i + j;
+             i = j;
+             j = k;
+		}
+	</script> -->
+
+	<script>
+		// 判断一个特定值是否存在
+		function exist (arr,value){
+			if(!(typeof arr == "object" && arguments.length>1)){
+				return false;
+			}
+			for(var i=0;i<arr.length;i++){
+				if(arr[i] == value){
+					return true;
+				}
+			}
+		}
+		var arr = [9,8,6,10,25,63,88]
+		console.log(exist(arr,63));
+
+		// 二维数组取最大值
+		function tr (arr){
+			var max =0 ;
+			for (var i =0;i<arr.length;i++){
+				for(var j =0;j<arr[i].length;j++){
+					if(arr[i][j] > max){
+                        max = arr[i][j];
+					}
+				}
+			}
+			return max;
+		}
+		var arr =[[66,44],[88,98],[200,85]]
+		console.log(tr(arr));
+
+		// join
+		function join (arr,st="-"){
+			let str = "";
+			for(let i=0;i<arr.length;i++){
+				if(i<arr.length-1){
+				str += arr[i] + st
+				}else{
+					str += arr[i];
+				}
+			}
+			return str;
+		}
+		var arr2 = [9,8,6,10,25,63,88]
+        console.log(join(arr2));
+
+        // 筛选
+        function filter (arr,fn){
+        	let arr5  = new Array;
+        	for(let i = 0;i<arr.length;i++){
+        		if(fn(arr[i])){
+                   arr5.push(arr[i]);
+        		}
+        	}
+        	return arr5;
+        }
+		var arr3 = [9,8,6,10,25,63,88]
+		let result = filter(arr3,function(value){
+			return value < 25;
+		});
+		console.log(result);
+
+		// 映射
+		function map (arr,fn){
+			let arr4 = new Array();
+			for (let i = 0;i<arr.length;i++){
+				arr4.push(fn(arr[i]));
+			}
+			return arr4;
+		}
+		var arr6 = [9,8,6,10,25,63,88]
+		console.log(map(arr6,function(value){
+			return value + 2;
+		}))
+
+		// 反转
+		function reverse (arr){
+			let arr7 = new Array();
+			for (let i=arr.length-1;i>-1;i--){
+				arr7.push(arr[i]);
+			}
+		    return arr7;
+		}
+		var arr8 = [9,8,6,10,25,63,88]
+		console.log(reverse(arr8));
+
+		// 升序排列
+		function sortup (arr){
+			for(let i=0;i<arr.length;i++){
+				for(let j =i+1;j<arr.length;j++){
+					if(arr[i] > arr[j]){
+                        let tamp = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] =tamp;
+					}
+				}
+			}
+			return arr;
+		}
+		var arr10 = [9,8,6,100,25,63,88]
+        console.log(sortup(arr10));
+
+        // some
+        function some (arr,fn){
+        	for(let i =0;i<arr.length;i++){
+        		if(fn(arr[i])){
+        			return 1;
+        		}
+        	}
+        	return -1;
+        }
+		var arr11 = [9,8,6,10,25,63,88]
+        console.log(some(arr11,function(value){
+        	return value == 636;
+        }))
+
+        // 万能的删除与添加
+        function spliceCancel(arr,pos,num){
+        	let newarr = new Array();
+        	for (let i=0;i<arr.length;i++){
+        		if(i>=pos && i<pos+num){
+                     continue;
+        		}
+        		newarr.push(arr[i])
+        	}
+        	return newarr;
+        }
+		var arr12 = [9,8,6,10,25,63,88]
+        console.log(spliceCancel(arr12,1,2));
+
+        function spliceAdd (arr,pos,...rest){
+        	let newarr = new Array();
+        	for (let i =0;i<pos;i++){
+        		newarr.push(arr[i]);
+        	}
+        	for (let i = 0;i<rest.length;i++){
+        		newarr.push(rest[i]);
+        	}
+        	for (let i=pos;i<arr.length;i++){
+        		newarr.push(arr[i]);
+        	}
+        	return newarr;
+        }
+		var arr13 = [9,8,6,10,25,63,88]
+        console.log(spliceAdd(arr13,1,66,99));
+
+        function spliceAll (arr,pos,num,pos1,...rest){
+              var newarr = spliceCancel(arr,pos,num);
+              if(rest.length >0){
+              	newarr = spliceAdd(newarr,pos1,...rest)
+              }
+              return newarr;
+        }
+		var arr14 = [9,8,6,10,25,63,88]
+        console.log(spliceAll(arr14,1,2,4,66,99));
+
+        // 字符串 多处代替
+        function replaceAll (str,newstr){
+        	let star ="";
+        	for (let i =0;i<newstr.length;i++){
+        		star += "*";
+        	}
+        	while (str.includes(newstr)){
+        		str = str.replace(newstr,star);
+        	}
+        	return str;
+        }
+		let str4 = "adfdsadgegadsdadf";
+        let result2 = replaceAll(str4,"ad");
+        console.log(result2);
+
+        // 字符串查找位置
+        function speach (url,str){
+        	let star ="";
+			for (let i =0;i<str.length;i++){
+				star += "*";
+			}
+			let newarr = [];
+			while(url.includes(str)){
+				newarr.push(url.indexOf(str))
+				url = url.replace(str,star);
+			}
+			return newarr;
+        }
+		let url = "https//www.baidu.comhttps//www.baidu.comhttps//www.baidu.comhttps//www.baidu.comhttps//www.baidu.comhttps//www.baidu.com" ;
+		let result5 = speach(url,"baidu");
+		console.log(result5);
+        
+        // 去重复
+        	function exeta1 (arr){
+			let newarr = [];
+			for (let i =0;i<arr.length;i++){
+				let flag = true;
+				for(let j = i+1;j<arr.length;j++){
+					if(arr[i] == arr[j]){
+						flag = false;
+						break;
+					}
+				}
+				if (flag){
+					newarr.push(arr[i]);
+				}
+			}
+			return newarr
+		}
+		let result1 = exeta1(arr6);
+		console.log(result1);
+
+		// 随机取3个不重复的值
+		function choose (arr,sum){
+			let newarr = [];
+			for (let i=0;i<sum;i++){
+                let index = Math.floor(Math.random()*arr.length);
+                while(newarr.includes(arr[index])){
+                	index =Math.floor(Math.random()*arr.length);
+                }
+                newarr.push(arr[index]);
+			}
+			return newarr;
+		}
+ let arr80 = ["a","b","c","d","e","f"];
+let result11 = choose(arr80,3);
+console.log(result11);
+
+	</script>
+</body>
+</html>
