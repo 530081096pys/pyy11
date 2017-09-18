@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="second-animation.css">
+</head>
+<style>
+	main{
+		width: 1226px;
+        height: 450px;
+        border: 1px solid #dfdfdf;
+        margin: 20px auto ;
+        position: relative;
+	}
+    .btn{
+    	width: 125px;
+    	height: 15px;
+    	position: absolute;
+    	bottom: 20px;
+    	left: 50%;
+    	margin-left: -62px;
+    }
+    ul.btn>li{
+    	width: 15px;
+    	height: 15px;
+    	border-radius: 50%;
+    	cursor: pointer;
+    	background: green;
+    	margin-right: 10px;
+    	float: left;
+    	/* list-style:none; */
+    }
+    #orange{
+    	background: orange;
+    }
+</style>
+<body>
+	<main>
+		<ul class="btn" >
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</main>
+	<script>
+		let btn = document.getElementsByClassName("btn");
+		let lis = btn[0].getElementsByTagName("li");
+		// for(let i=0;i<lis.length;i++){
+		// 	lis[i].style.background = "pink";
+		// }
+		// lis[0].id = "orange";
+		// lis[1].id = "orange";
+		
+	</script>
+</body>
+</html>

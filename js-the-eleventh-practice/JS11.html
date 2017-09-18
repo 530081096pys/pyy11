@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js-day-practice</title>
+</head>
+<style>
+	#box{
+		width: 200px;height: 200px;
+		background: #ff6700;
+		text-align: center;
+		margin:  auto;
+	}
+	div{
+		width: 200px;
+		height: 200px;
+		background: red;
+		float: left;
+		margin: 10px;
+	}
+</style>
+<body>
+    <div id="box">
+    	this is for everyone
+    </div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+	<script>
+		console.dir(document.title);
+        // 改动
+        document.title = "这是DOM笔记" 
+        console.log(document.URL);
+        // URL无法修改
+        // document.bgColor = "#ff6700";
+        // document.fgColor = "#0085d0";
+        
+        // 获取
+        let a = document.getElementById("box");
+        console.log(a);
+        box.style.height = "500px";
+        // 获取后先检查
+        
+        let b= document.getElementsByTagName("div");
+        // 获取指定标签名的集合 通过下标来操作
+        b[1].style.background = "pink";
+        // 都添加 就要遍历
+        for (let i=0;i<b.length;i++){
+           b[i].style.background = "pink";
+        }
+
+        // 类名获取 一定要先获取到！
+        let c = document.getElementsByClassName("box");
+        console.log(c);
+        c[2].style.background = "green";
+
+        // 事件
+        
+	</script>
+</body>
+</html>

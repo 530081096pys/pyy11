@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大和缩小</title>
+</head>
+<style>
+	.box{
+        width: 300px;
+        height: 300px;
+        background: red;
+        margin: 20px auto;
+	}
+</style>
+<body>
+	<div class="box"></div>
+	<!-- box按照每300毫秒 十个像素的方式放大 大到500-->
+	<script>
+		let box = document.getElementsByClassName("box")[0];
+		console.log(box);
+		// 先获取元素
+		let t;
+		let speed = 10;
+		t = setInterval(fn,60);
+		// 建立要执行的函数
+		function fn (){
+			// 编写函数
+			let a = parseInt(getComputedStyle(box,null).width);
+			// 获取所需要元素样式的值
+            if(a >= 500){
+            	speed = -speed;
+            }
+            if(a < 200){
+            	speed = -speed;
+            }
+            box.style.width = `${a + speed}px`;
+            // 当满足条件的时候赋值
+		}
+	</script>
+</body>
+</html>

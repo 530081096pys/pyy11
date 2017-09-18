@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	button{
+		padding: 5px 10px;
+		border: none;
+		background: #0058d0;
+		color: #fff;
+		border-radius: 5px;
+		margin-right: 10px;
+		outline: none;
+	}
+	#slide{
+		width: 110px;
+		height: 300px;
+		background: red;
+		transition:  0.3s;
+		margin-top: 10px;
+		position: absolute;
+	}
+	#aa{
+		margin-left: 300px;
+	}
+	#slide2{
+		width: 60px;
+		height: 300px;
+		background: purple;
+		margin-left: 430px;
+		margin-top: 10px;
+		transition:  0.3s;
+	}
+	main{
+		width: 1226px;
+        height: 450px;
+        border: 1px solid #dfdfdf;
+        margin: 20px auto ;
+        position: relative;
+	}
+    .btm{
+    	width: 125px;
+    	height: 15px;
+    	position: absolute;
+    	bottom: 20px;
+    	left: 50%;
+    	margin-left: -62px;
+
+    }
+    ul.btm>li{
+    	cursor: pointer;
+    }
+</style>
+<body>
+    <main>
+    	<ul class="btm">
+    		<li></li>
+    		<li></li>
+    		<li></li>
+    		<li></li>
+    		<li></li>
+    	</ul>
+    </main>
+	<button>下拉</button>
+	<button>恢复</button>
+	<div id="slide">
+		
+	</div>
+	<button id="aa">下拉按钮</button>
+	<div id="slide2">
+		
+	</div>	
+	<script>
+		let setup =document.getElementsByTagName("button");
+		let recover = document.getElementById("slide");
+		console.log(setup);
+		console.log(recover);
+		setup[0].onclick = function(){
+			recover.style.height = "300px";
+		}
+		setup[1].onclick = function(){
+			recover.style.height = 0;
+		}
+        
+        let theall = document.getElementById("aa");
+        let slide2 = document.getElementById("slide2");
+        console.log(theall);
+        console.log(slide2);
+     //    theall.onclick = function(){
+			  // if(slide2.style.height == "300px"){
+			  // 	slide2.style.height = 0;
+			  // }else{
+			  // 	slide2.style.height = "300px";
+			  // }
+     //    }
+
+        let flag = true;
+        // 用状态变量表示当前进程。
+        theall.onclick = function(){
+        	if(flag){
+			  	slide2.style.height = 0;
+			  	flag = false;
+        	}else{
+			  	slide2.style.height = "300px";
+                flag = true;
+        	}
+        }
+
+        // 后代选择器获取元素
+        // 先获取父元素
+        let btm =document.getElementsByClassName("btm");
+        // 要有下标，才能选中
+        btm[0].getElementsByTagName("li");
+	</script>
+</body>
+</html>
