@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+    *{
+    	margin: 0;
+    	padding: 0;
+    }
+	.box{
+		width: 60px;
+		height: 60px;
+		background: red;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+	}
+</style>
+<body>
+	<div class="box"></div>
+	<script>
+	    window.onload = function(){
+		let t;
+		let box = $(".box")[0];
+		console.log(box);
+		let speed = 10;
+		let speed1 =10;
+		let macY = window.innerHeight - box.offsetHeight;
+		console.log(macY);
+		let maxW = window.innerWidth -box.offsetWidth;
+		console.log(maxW);
+		t = setInterval(move,60);
+		function move (){
+			let tops = box.offsetTop + speed ;
+			let widths =box.offsetLeft + speed1;
+			if(tops >= macY ){
+				// tops = macY;
+				speed *= -1;
+			}
+			if (tops <=0){
+				// tops = 0;
+				speed *= -1  ;
+			}
+			if (widths >= maxW){
+				speed1 = -speed1
+			}
+			if(widths <=0){
+				speed1 = -speed1
+			}
+			box.style.top = tops +"px";
+			box.style.left = widths +"px";
+		}
+        
+	}
+	</script>
+	<script src="function-js.js"></script>
+</body>
+</html>
