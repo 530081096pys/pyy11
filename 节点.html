@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="box">
+		hello
+		 <span>hi</span>
+		 <p class="bb">lala</p>
+		 <span>lal</span>
+		 <div>llaa</div>
+		 <p>datui</p>
+		 <p>made</p>
+		 <span>lalalaalal</span>
+	</div>
+	<script>
+
+	    // 简单遍历
+		// let child = document.querySelector("div");
+		// console.log(child);
+		// let kids = child.childNodes;
+		// console.log(kids);
+		// let young = child.children;
+		// console.log(young);
+		let text = document.querySelector(".bb");
+		console.log(text);
+		// console.log(text.nextElementSibling);
+
+		// function realKid (obj){
+		// 	let newarr = new Array();
+		// 	for(let i = 0;i<obj.length;i++){
+		// 		if(obj[i].nodeType == 1){
+		// 			newarr.push(obj[i])
+		// 		}
+		// 	}
+		// 	return newarr;
+		// }
+		// console.log(realKid(kids));
+
+		// 筛选
+		// function filter (obj,fn){
+		// 	let newarr =new Array;
+		// 	let change = Array.from(obj);
+		// 	for(let i =0;i<change.length;i++){
+		// 		if(fn(change[i])){
+		// 			newarr.push(change[i]);
+		// 		}
+		// 	}
+		// 	return newarr;
+		// }
+		// let aa = filter(kids,function(value){
+		// 	return value.nodeType == 1
+		// })
+		// console.log(aa);
+
+		// 箭头筛选
+		// function Parent (obj){
+  //            let change = Array.from(obj);
+  //            let newarr = change.filter(element=>element.nodeType==1)
+  //            return newarr;
+		// }
+		// console.log(Parent(kids));
+
+		// 寻找相邻最近的兄弟元素
+		// function next (element,tagname){
+		// 	let father = element.parentNode;
+		// 	let boys = father.children;
+		// 	let index =0;
+		// 	for(let i=0;i<boys.length;i++){
+		// 		if (boys[i] == element) {
+		// 			index = i ;
+		// 			break;
+		// 		}
+		// 	}
+		// 	let nexts = Array.from(boys).slice(index+1);
+		// 	console.log(nexts);
+		// 	for(let i=0;i<nexts.length;i++){
+		// 		if (nexts[i].nodeName == tagname.toUpperCase()){
+  //                       return nexts[i];
+		// 		}
+		// 	}
+		// 	return null;
+		// }
+		// console.log(next(text,"p"));
+
+		// while
+		function next1 (element,tagname){
+			// let father = element.parentNode;
+			// let boys = father.children;
+			while(element.nextElementSibling.nodeName !== tagname.toUpperCase()){
+					element  = element.nextElementSibling;
+					if(element.nextElementSibling == null){
+						return null;
+					}
+			}
+			return element.nextElementSibling;
+		}
+		console.log(next1(text,"li"));
+	</script>
+</body>
+</html>
