@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圆圈</title>
+</head>
+<style>
+	.pointer{
+		width: 1px;
+		height: 1px;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    background: red;
+	}
+	.cycle{
+		width: 20px;
+		height: 20px;
+		border-radius: 50%;
+		background: red;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transition: all ease 2s;
+	}
+</style>
+<body>
+	<div class="pointer"></div>
+</body>
+<script>
+	let center = document.querySelector(".pointer");
+	console.log(center);
+function cycle (radius,num){
+	        let r = radius;
+	for(let i =0 ;i<num;i++){
+
+		 function color(){
+		     let str = "rgb("
+		     for(let i =0;i<3;i++){
+			 let num = Math.round(Math.random()*255);
+			 str += num + ",";
+		  }
+		     str = str.slice(0,-1);
+		     str = str + ")";
+		     return str;
+	    }
+	    if(i%30==0){
+	    	r += 50;
+	    }
+		let divs = document.createElement("div");
+	    divs.className = "cycle";
+		let  per = 360/30//一圈的个数;
+		let lefts = r*Math.cos(i*per*(Math.PI/180));
+		let tops = r*Math.sin(i*per*(Math.PI/180));
+	    divs.style.background = color();
+	    center.appendChild(divs);
+	    setTimeout(function(){
+	    	divs.style.transitionDelay =`${i*100}ms`;
+	    divs.style.left = lefts + "px";
+		divs.style.top = tops + "px";
+	    },5)
+	}
+}
+cycle(200,90);
+</script>
+</html>

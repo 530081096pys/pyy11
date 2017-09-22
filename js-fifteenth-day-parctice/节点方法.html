@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点方法</title>
+</head>
+<style>
+	.p{
+		width: 100px;
+		height: 100px;
+		background: green;
+	}
+</style>
+<body>
+      <div class="box" style="width:800px;height:800px;background:#ff0067"></div>
+</body>
+	<script>
+		let divs = document.createElement("div");
+		let box = document.querySelector("div.box")
+		divs.style.width = "300px";
+		divs.style.height = "300px";
+		divs.style.background = "red";
+        box.appendChild(divs);
+
+        let p = document.createElement("p");
+        // p.className = "P";
+        p.style.cssText = `
+                 width:150px;
+                 height:150px;
+                 background : #fff;
+        `;
+        box.appendChild(p);
+        // cssText 会重写样式
+
+	</script>
+</html>

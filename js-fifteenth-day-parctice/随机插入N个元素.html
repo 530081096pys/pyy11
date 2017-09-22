@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>随机N个插入</title>
+</head>
+<style>
+	.box{
+		width: 50px;
+		height: 50px;
+		background: red;
+		position: absolute;
+		border-radius: 50%;
+		top: 50%;
+		left: 50%;
+		transition: all ease 1100ms;
+	}
+</style>
+<body>
+	
+</body>
+<script>
+
+</script>
+<script>
+	window.onload = function(){
+	function ranDom(num){
+		for(let i =0;i<num;i++){
+		  function color(){
+		     let str = "rgb("
+		     for(let i =0;i<3;i++){
+			 let num = Math.round(Math.random()*255);
+			 str += num + ",";
+		  }
+		     str = str.slice(0,-1);
+		     str = str + ")";
+		     return str;
+	    }
+			let divs = document.createElement("div");
+			divs.className = "box";
+			let lefts = Math.floor((window.innerWidth - 100)*Math.random());
+			let tops = Math.floor((window.innerHeight - 100)*Math.random());
+			let widths = Math.floor(Math.random()*50+40);
+			let heights = Math.floor(Math.random()*50+40);
+			// let color = "rgb("+{Math.round(Math.random()*255)}+","+{Math.round(Math.random()*255)}+","+{Math.round(Math.random()*255)}+")"
+			// divs.style.left = lefts + "px";
+			// divs.style.top = tops +"px";
+			divs.style.background = color();
+			// divs.style.background = color;
+			divs.style.width = widths + "px";
+			divs.style.height = heights + "px";
+			document.body.appendChild(divs);
+
+            setTimeout(function(){
+            divs.style.transitionDelay = Math.random()*1000 +"ms";
+            // `${i*100}ms`;
+            divs.style.left = lefts + "px";
+			divs.style.top = tops +"px";
+            },5)
+		}
+	  }
+	  	ranDom(30);
+	}
+
+</script>
+</html>
