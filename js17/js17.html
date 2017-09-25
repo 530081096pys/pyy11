@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.box{
+		width: 300px;
+		height: 300px;
+		background: red;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.another-box{
+		width: 100px;
+		height: 500px;
+		position: absolute;
+		top: 200px;
+		left: 350px;
+		background: purple;
+	}
+</style>
+<body>
+	<div class="box"></div>
+	<div class="another-box"></div>
+	<script src="drag.js"></script>
+	<script>
+	    window.onload = function (){
+	    	let box = document.querySelector(".box");
+	    	let text = new Drag(box);
+	    	text.move();
+	    	let anotherBox = document.querySelector(".another-box");
+	    	let text1 = new Drag(anotherBox);
+	    	text1.move();
+	    }
+		// window.addEventListener("load",function(){
+		// 	let box = document.querySelector(".box");
+		// 	console.log(box);
+		// 	box.addEventListener("mousedown",function(e){
+		// 		let ox =e.offsetX;
+		// 		let oy = e.offsetY;
+		// 		// console.log(ox); 
+		// 		document.addEventListener("mousemove",move);
+		// 		box.addEventListener("mouseup",function(){
+		// 			document.removeEventListener("mousemove",move);
+		// 		})
+		// 		function move (e){
+		// 			let lefts = e.clientX - ox;
+		// 			let tops = e.clientY - oy;
+		// 			box.style.left = lefts +"px";
+		// 			box.style.top =  tops + "px";
+		// 		}
+		// 	})
+		// })
+	</script>
+</body>
+</html>
