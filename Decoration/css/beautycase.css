@@ -1,0 +1,603 @@
+*{
+	font-family: 微软雅黑;
+	font-size: 14px;
+	
+}
+header{
+	width: 100%;
+	height: 30px;
+	background: #e7e7e7;
+	line-height: 30px;
+}
+
+header a{
+	color: #9b9b9b;
+}
+
+.header-center{
+	width: 90%;
+	margin: 0 auto;
+	color: #9b9b9b;
+	font-size: 14px;
+}
+
+.header-left{
+	width: 60%;
+	height: 30px;
+	float: left;
+}
+
+.header-icon{
+	width: 18px;
+	height: 18px;
+	float: left;
+	margin-top: 3px;
+	margin-right: 5px;
+}
+
+.header-left:hover a{
+	color: #c33;
+}
+
+.header-right{
+	width: 380px;
+	height: 30px;
+	float: right;
+}
+
+.header-right a{
+	color: #555555;
+}
+
+.header-right a:hover {
+	color: #c33;
+}
+
+.right-word{
+	width: 180px;
+	height: 30px;
+	float: left;
+}
+
+.wechat{
+	width: 100px;
+	height: 30px;
+	float: left;
+	cursor: pointer;
+}
+
+.wechat-img{
+	width: 20px;
+	height: 20px;
+	margin-top: 5px;
+	float: left;
+}
+
+.search{
+	width: 100%;
+	padding: 30px 0 25px;
+}
+
+.search-center{
+	width: 1200px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.search-logo{
+	float: left;
+	width: 33.333%;
+	height: 63px;
+	background-image: url('../img/logo.png');
+	background-size: 340px auto;
+	background-repeat: no-repeat;
+	background-position: left center;
+	cursor: pointer;
+}
+
+.search-input{
+	width: 41.667%;
+	height: 40px;
+	margin-top: 12px;
+	padding: 0 30px;
+	float: left;
+}
+
+.search-input form{
+	width: 430px;
+	height: 40px;
+	border: solid 2px #ff343f;
+}
+
+.search-input input{
+	width: 310px;
+	height: 36px;
+	font-size: 12px;
+	color: #666;
+	float: left;
+	margin-left: 10px;
+}
+
+.search-input .bottom{
+	width: 75px;
+	height: 36px;
+	background: #ff343f;
+	color: #fff;
+	float: right;
+	font-size: 14px;
+}
+
+.search-tel{
+	width: 25%;
+	float: right;
+	height: 56px;
+	margin-top: 6px;
+	padding-left: 48px;
+	font-size: 14px;
+}
+
+.tel-icon{
+	width: 31px;
+	height: 31px;
+	background: url('../img/ico.png') no-repeat 0 -20px;
+	margin-top: 13px;
+	float: left;
+}
+
+.tel-number{
+	float: left;
+	padding-top: 4px;
+	padding-left: 5px;
+	color: #666;
+	line-height: 21px;
+}
+
+nav{
+	width: 100%;
+	height: 55px;
+	background: #302e31;
+	font-size: 14px;
+	text-align: center;
+	line-height: 55px;
+}
+
+.container{
+	width: 1200px;
+	height: 55px;
+	margin: 0 auto;
+}
+
+.nav-left{
+	float: left;
+	width: 923px;
+	height: 55px;
+}
+
+.nav-left li{
+	float: left;
+	width: 131px;
+	height: 55px;
+	border-right: solid 1px #373737;
+
+}
+
+.nav-left li:nth-child(7){
+	border-right-width: 0;
+	
+
+}
+
+.nav-left li:nth-child(2){
+	background: #d42021;
+}
+
+.nav-left li a{
+	color: #ececec;
+	transition: all .3s linear;
+}
+
+.nav-left li a:hover{
+	color: #d42021;
+}
+
+.nav-left li:nth-child(2) a:hover{
+	color: #ececec;
+}
+
+.nav-right{
+	float: right;
+	width: 180px;
+	height: 55px;
+	color: #d42021;
+	background: #272528;
+	line-height: 55px;
+	font-size: 14px;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+}
+
+.hot{
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	background: #f27734;
+	color: #fff;
+	height: 15px;
+	line-height: 15px;
+	font-size: 10px;
+	padding: 0 3px;
+	border-radius: 3px;
+}
+
+.trangle{
+	width: 0;
+	height: 0;
+	border-width: 5px 6px 0 0;
+	border-color: #f27734 transparent transparent;
+	border-style: solid;
+}
+
+.beautycase{
+	width: 1200px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.beautycase-title{
+	padding: 16px 0 10px;
+	color: #666;
+}
+
+.beautycase-title a{
+	color: #555;
+}
+
+.beautycase-title a:hover{
+	color: #d7000f;
+}
+
+.beautychoose{
+	width: auto;
+	border: 1px #eaeaea solid;
+}
+
+.case{
+	overflow: hidden;
+}
+
+.beautychoose .case li{
+	line-height: 40px;
+	border-top: 1px #eaeaea dotted;
+	background: #f8f8f8;
+	position: relative;
+	top: -1px;
+	overflow: hidden;
+}
+
+.beautychoose-case1{
+	width: 109px;
+	text-align: center;
+	color: #999;
+	float: left;
+}
+
+.case1{
+	padding: 0 30px 0 30px;
+	border-left: 1px #eaeaea solid;
+	width: 1089px;
+	overflow: hidden;
+	background: #fff;
+	float: left;
+
+}
+
+.beautychoose .case1 li{
+	position: relative;
+	padding-right: 33px;
+	display: inline;
+	cursor: pointer;
+	background: #fff;
+	border-top-width: 0; 
+}
+
+.beautycheck{
+	height: 47px;
+	margin-top: 20px;
+}
+
+.beautycheck-center{
+	padding: 9px 10px 8px 15px;
+	background: #424242;
+	margin-top: 20px;
+}
+
+.beautycheck-center span{
+	padding-right: 5px;
+	color: #b2b2b2;
+	line-height: 30px;
+}
+
+.beautycheck-center form{
+	display: inline-block;
+}
+
+.beautycheck-center span input{
+	width: 94px;
+	line-height: 24px;
+	padding: 3px 2px;
+}
+
+.right{
+	float: right;
+	padding-right: 5px;
+	color: #b2b2b2;
+	line-height: 30px;
+}
+
+.right .guanjian{
+	height: 28px;
+	width: 210px;
+	line-height: 24px;
+	padding: 2px 5px;
+	font-size: 12px;
+	color: #666;
+	float: left;
+}
+
+.right .bottom{
+	cursor: pointer;
+	color: #fff;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 8px;
+	background: #ff343d;
+	float: left;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.beautymain{
+	width: 1220px;
+	margin-top: 15px;
+	background: #fff;
+}
+
+.beautymain ul{
+	width: 100%;
+	overflow: hidden;
+}
+
+.beautymain ul li{
+	float: left;
+	margin: 0 13px 13px 0;
+}
+
+.pic{
+	width: 290px;
+	height: 290px;
+	overflow: hidden;
+	position: relative;
+}
+
+.tuijian{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	display: none;
+}
+
+.beautymain ul li:hover .tuijian{
+	display: block;
+}
+
+.by-word{
+	width: 290px;
+	height: 80px;
+	border: 1px #eaeaea solid;
+	padding: 9px;
+	line-height: 20px;
+	position: relative;
+}
+
+.by-word .pic{
+	display: inline-block;
+	top: -40px;
+	right: 0;
+	width: 80px;
+	height: 80px;
+	position: absolute;
+
+}
+
+.by-word .pic img{
+	display: inline-block;
+	width: 63px;
+	height: 63px;
+	border: 2px #fff solid;
+	border-radius: 100%;
+}
+
+.by-word p a{
+	color: #6a6a6a;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 190px;
+	text-overflow: ellipsis;
+	line-height: 20px;
+}
+
+.by-word p a:hover{
+	color: #ff343d;
+}
+
+.by-word .case-item{
+	color: #8f8f8f;
+	font-size: 12px;
+	margin-top: 5px;
+	line-height: 20px;
+}
+
+.by-word .case-item span{
+	font-size: 12px;
+}
+
+.pageturner{
+	text-align: center;
+	padding: 30px 0;
+	font-size: 14px;
+}
+
+.pageturner a{
+	display: inline-block;
+	padding: 0 10px;
+	line-height: 33px;
+	border: solid 1px #ddd;
+	margin: 0 3px;
+	background: #fff;
+}
+
+.pageturner .acti{
+	background: #d7000f;
+	color: #fff;
+}
+
+.pageturner a:hover{
+	background: #f8f8f8;
+	color: #d7000f;
+}
+
+.foot{
+	height: 360px;
+	width: 100%;
+	background: #e9e9e9;
+}
+
+.foot-center1{
+	width: 1190px;
+	height: auto;
+	margin: 0 auto 10px;
+	overflow: hidden;
+	position: relative;
+	padding-top: 12px;
+}
+
+.F1{
+	float: left;
+	width: 901px;
+	height: auto;
+	overflow: hidden;
+	border-right: 1px dotted #404040;
+}
+
+.F1 li{
+	width: 150px;
+	height: auto;
+	overflow: hidden;
+	float: left;
+}
+
+.F1 li a{
+	display: block;
+	font: 12px/30px "microsoft yahei";
+	color: #3d3d3d;
+}
+
+.F1 li h1{
+	display: block;
+	height: 48px;
+	font: 700 15px/48px "microsoft yahei";
+	color: #3d3d3d;
+}
+
+.F1 li a:hover,.F1 li h1:hover{
+	color: #D7000F;
+}
+
+.social{
+	width: 280px;
+	float: left;
+	text-indent: 16px;
+	color: #fff;
+}
+
+.social h1{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 20px;
+	color: #3d3d3d;
+	text-align: center;
+	margin: 10px 0;
+	font-weight: normal;
+}
+
+.social-wechat{
+	float: left;
+	margin-left: 30px;
+	width: 96px;
+	height: 120px;
+}
+
+.social-wechat img{
+	width: 80px;
+	height: 80px;
+}
+
+.social-wechat p{
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	color: #3d3d3d;
+}
+
+.foot-center2{
+	width: 1190px;
+	height: 65px;
+	margin: 10px auto;
+}
+
+.friendlink{
+	color: #3d3d3d;
+	font-size: 16px;
+	border-bottom: 1px dotted #404040;
+}
+
+.copyright{
+	width: 100%;
+	overflow: hidden;
+	background: #302e31;
+	height: 40px;
+	line-height: 40px;
+}
+
+.copyright p{
+	width: 1230px;
+	margin: 0 auto;
+	color: #fff;
+}
+
+.copyright span{
+	float: left;
+}
+
+.map{
+	margin-left: 20px;
+}
+
+.map a{
+	color: #c3c3c3;
+}
+
+.copyright .zhichi{
+	float: right;
+}
+
+.copyright .zhichi a{
+	color: #fff;
+}
+
+.zhichi a:hover{
+	color: #D7000F;
+}
+
