@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇</title>
+    <script src="myjQuery.js"></script>
+    <script src="animate.js"></script>
+    <style>
+        *{
+            font-size: 40px;
+            color: #00baff;
+            text-align: center;
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            width:100%;
+            height:100%;
+        }
+        body{
+            background: url("2.jpg") center/cover;
+        }
+
+        .box{
+            width:600px;
+            height:600px;
+            border: 5px solid #000;
+            position: absolute;
+            top:50%;
+            margin-top: -300px;
+            left:50%;
+            margin-left: -300px;
+        }
+
+        .box > div{
+            width:30px;
+            height:30px;
+            /*border: 1px solid #000;*/
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .she{
+            background: #ff6f77;
+        }
+
+
+        .food{
+            background: #1dffbd;
+            border-radius: 10px;
+            border: 1px solid #000;
+
+        }
+
+        .food1{
+            background: #1dffbd;
+            border-radius: 10px;
+            border: 1px solid #000;
+
+        }
+
+        .food2{
+            background: #0c51ff;
+            border-radius: 10px;
+            border: 1px solid #000;
+
+        }
+
+        .food3{
+            background: #ffaa00;
+            border-radius: 10px;
+            border: 1px solid #000;
+
+        }
+
+        .food4{
+            background: #111111;
+            border-radius: 10px;
+            border: 1px solid #000;
+
+        }
+
+        .food5{
+            background: #4BAE50;
+            border-radius: 10px;
+            border: 1px solid #000;
+
+        }
+
+        .cir{
+            border-radius: 50%;
+            border-color: red;
+        }
+
+        .gongneng{
+            position: absolute;
+            right:10%;
+            top:30%;
+            width:200px;
+            height: 100px;
+            border: 1px solid #1dffbd;
+            padding:10px;
+            box-sizing: border-box;
+            background: rgba(255,255,255,.8);
+        }
+
+        .gongneng>div{
+            font-size: 20px;
+            width:100%;
+            height:50%;
+            line-height: 40px;
+            text-align: left;
+            padding-left: 30px;
+        }
+
+        .gongneng>div>span{
+            font-size: inherit;
+        }
+
+        button{
+            width:100px;
+            height:50px;
+            position: absolute;
+            right:13%;
+            top:10%;
+            border: none;
+            background: #ff6f77;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        div.zhezhao{
+            width:100%;
+            height:100%;
+            background: rgba(0,0,0,.5);
+            position: absolute;
+            left:0;
+            top:0;
+            z-index: 500;
+            overflow: hidden;
+        }
+        div.zhezhao>span{
+            position: absolute;
+            display: block;
+            width:1000px;
+            height:200px;
+            top:50%;
+            left:50%;
+            margin-top: -100px;
+            margin-left: -500px;
+        }
+
+        div.zhezhao>button.kaishi{
+            top:60%;
+            left:75%;
+            margin-left: -500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="zhezhao">
+        <span>欢迎来到贪吃蛇小游戏！</span>
+        <button class="kaishi">开始游戏</button>
+    </div>
+    <h1>贪吃蛇</h1>
+    <div class="box"></div>
+    <div class="gongneng">
+        <div><span>分数:</span><span></span></div>
+        <div><span>时间:</span><span></span></div>
+    </div>
+    <button class="res">重新开始</button>
+</body>
+</html>
+<script>
+    //创建构造函数snack;
+    function snack() {
+        this.name = snack;
+        //预存食物属性名属性
+        this.foodarr = ['food','food1','food2','food3','food4','food5'];
+        //获取场景
+        this.bigscreen = $('.box',true);
+        //获取遮罩
+        this.zhezhao = $('div.zhezhao',true);
+        //获取开始按钮
+        this.starbtn = $('button.kaishi',true);
+        //设置方向初始值
+        this.way = 'right';
+        //获取功能盒子时间内容
+        this.timecase = $('.gongneng>div:last-child>span:last-child',true);
+        //获取功能盒子分数内容
+        this.scr = $('.gongneng>div>span:last-child',true);
+        //获取重置按钮
+        this.rest = $('button.res',true)
+    }
+    //在构造函数snack的原型对象中添加方法
+    snack.prototype={
+        //play方法创建
+        play:function () {
+            //保存指针
+            let that = this;
+            //设置开始按钮点击事件
+            this.starbtn.onclick=function () {
+                //创建开场动画，并在开场动画完成之后正式开始游戏。
+                animate(that.zhezhao,{height:0},1000,function () {
+                    //游戏开始时获取初始时间戳。
+                    that.starTime = Date.now();
+                    //设置时间函数
+                    that.t = setInterval(function () {//此处使用匿名函数的原因为如果直接调用moves方法则指针无法保存，会直接指向window
+                        that.moves();//此时指针确保一直指向snack
+                    },200);
+                })
+            };
+            //调用创建场景方法
+            this.greatSceen();
+            //调用创建初始蛇方法
+            this.greatSnake();
+            //调用创建食物方法
+            this.greatFood();
+            //调用方向方法
+            this.directions();
+            //设置重置按钮点击事件
+            this.rest.onclick=function () {
+                //刷新页面
+                history.go(0);
+            }
+        },
+        //设置创建初始场景方法
+        greatSceen:function () {
+            //保存指针
+            let that = this;
+            //循环创建初始场景
+            for(var i = 0; i < 20; i++){
+                for(var j = 0; j < 20; j++){
+                    var div = $('<div>');
+                    div.id='r'+j+'-'+i;
+                    that.bigscreen.appendChild(div);
+                }
+            }
+        },
+        //设置创建初始蛇身体方法
+        greatSnake:function () {
+            //设置初始蛇组成部分，并保存为数组对象这种便于操作的格式
+            this.bodyarr = [{x:0,y:0},{x:1,y:0},{x:2,y:0}];
+            //循环将蛇身体的每一个部分着色
+            this.bodyarr.forEach(function (value) {
+                var bodys = $('#r'+value.x+'-'+value.y,true);
+                bodys.className='she cir';
+            });
+        },
+        greatFood:function () {
+            let that = this;
+//利         //用check函数筛选出一个不在蛇身上的食物位置
+            do{
+                var x = Math.floor(Math.random()*20);
+                var y = Math.floor(Math.random()*20);
+            }while(that.check(x,y));
+            //将符合条件的值最终赋给foodobj且设置在snack身上
+            that.foodobj = {x:x,y:y};
+            //渲染
+            $('#r'+that.foodobj.x+'-'+that.foodobj.y,true).classList.add(that.foodarr[Math.round(Math.random()*5)]);
+        },
+        check:function (a,b) {
+            //利用some判断食物的x，y坐标是否有一个不和蛇身上的坐标重合
+            var result = this.bodyarr.some(function (value) {
+                return value.x==a&&value.y==b;
+            });
+            return result;
+        },
+        directions:function () {
+            //保存指针
+            let that = this;
+            //设置键盘按下事件
+            document.onkeydown=function (e) {
+                //获取目标事件源
+                that.key = e.keyCode;
+                //←：37
+                if(that.key==37){
+                    //设置在向右的时候不允许左键生效
+                    if(that.way=='right'){
+                        return;
+                    }
+                    that.way='left';
+                }else if(that.key == 38){//↓：38
+                    //设置在向上的时候不允许下键生效
+                    if(that.way=='down'){
+                        return;
+                    }
+                    that.way='up';
+                }else if(that.key == 39){//→：39
+                    //设置向右的时候不允许左键生效
+                    if(that.way=='left'){
+                        return;
+                    }
+                    that.way='right';
+                }else if(that.key == 40){//↑:40
+                    //设置向下的时候不允许上键生效
+                    if(that.way == 'up'){
+                        return;
+                    }
+                    that.way='down';
+                }
+            }
+        },
+        moves:function () {
+            //保存指针
+            let that=this;
+            //设置判断
+            switch(that.way){
+                //向右时:新蛇头的横坐标为旧蛇头的横坐标+1
+                //      新蛇头的纵坐标为旧蛇头的原纵坐标
+                case 'right':
+                    that.newobjx = that.bodyarr[that.bodyarr.length-1].x+1;
+                    that.newobjy = that.bodyarr[that.bodyarr.length-1].y;
+                    break;
+                //向左时:新蛇头的横坐标为旧蛇头的横坐标-1
+                //      新蛇头的纵坐标为旧蛇头的原纵坐标
+                case 'left':
+                    that.newobjx = that.bodyarr[that.bodyarr.length-1].x-1;
+                    that.newobjy = that.bodyarr[that.bodyarr.length-1].y;
+                    break;
+                //向上时:新蛇头的横坐标为旧蛇头的原横坐标
+                //      新蛇头的纵坐标为旧蛇头的纵坐标-1
+                case 'up':
+                    that.newobjx = that.bodyarr[that.bodyarr.length-1].x;
+                    that.newobjy = that.bodyarr[that.bodyarr.length-1].y-1;
+                    break;
+                //向下时:新蛇头的横坐标为旧蛇头的原横坐标
+                //      新蛇头的纵坐标为旧蛇头的纵坐标+1
+                case 'down':
+                    that.newobjx = that.bodyarr[that.bodyarr.length-1].x;
+                    that.newobjy = that.bodyarr[that.bodyarr.length-1].y+1;
+                    break;
+            }
+            if(that.newobjx>19||that.newobjx<0||that.newobjy<0||that.newobjy>19||that.check(that.newobjx,that.newobjy)){
+                alert(`game over!!`);
+                clearInterval(that.t);
+                return;
+            }
+            //创建新蛇头信息对象
+            that.newobj = {x:that.newobjx,y:that.newobjy};
+            //将新蛇头添加到蛇身上
+            that.bodyarr.push(that.newobj);
+            //获取当前和页面中相同坐标位置的div
+            that.newone = $('#r'+that.newobjx+'-'+that.newobjy,true);
+            //对新蛇头进行着色
+            that.newone.className='she cir';
+            //判断是否碰到食物，并重新创造新食物
+            if(that.newobjx==that.foodobj.x&&that.newobjy==that.foodobj.y){
+                that.greatFood();
+                $('#r'+that.foodobj.x+'-'+that.foodobj.y,true).classList.add(that.foodarr[Math.round(Math.random()*5)]);
+            }else{
+                //获取原蛇尾并进行去除颜色
+                $('#r'+that.bodyarr[0].x+'-'+that.bodyarr[0].y,true).className='';
+                //移除原蛇尾
+                that.bodyarr.shift();
+            }
+            //设置分数
+            that.scroe();
+            //设置时间
+            that.wastetimes();
+
+        },
+        //设置计分方法
+        scroe:function () {
+            //设置分数
+            this.scros = (this.bodyarr.length-3)*100;
+            //将分数输出到页面指定位置
+            this.scr.innerText=this.scros+'分';
+        },
+        //设置计时方法
+        wastetimes:function () {
+            //保存指针
+            let that = this;
+            //实时获取游戏中的时间
+            this.now = Date.now();
+            //将耗时输出到页面中指定位置。
+            this.timecase.innerText=Math.round((that.now-that.starTime)/1000)+'s';
+        }
+
+    }
+
+    //实例化obj对象
+    let obj = new snack();
+    //调用play方法。
+    obj.play();
+
+</script>

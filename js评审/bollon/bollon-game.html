@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bollon fly</title>
+    <link rel="stylesheet" href="css/bollon-game.css">
+    <script src="js/bollon-game.js"></script>
+    <script src="js/animate.js"></script>
+</head>
+<body>
+    <div class="cover">
+        <div class="num1">3</div>
+        <div class="num2">2</div>
+        <div class="num3">1</div>
+    </div>
+    <div class="item">
+        <div class="sorce">
+            得分：<span class="rsorce">0</span>
+        </div>
+        <div class="life">
+            生命：<span class="rlife">10</span>
+        </div>
+        <div class="picture">
+            <img src="img/1.png" alt="">
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        let a = new Bollon();
+        a.strat();
+        let b = document.querySelector("img");
+        b.onclick = function(){
+            a.restart();
+        }
+    }
+</script>
+</html>

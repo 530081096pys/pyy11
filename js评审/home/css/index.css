@@ -1,0 +1,416 @@
+@import url('base.css');
+/* about me 开始 */
+.about-section{
+	height: auto;
+	overflow: hidden;
+	padding: 90px 0;
+	background: #fff;
+}
+.about-left img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.about-right{
+	background: #fff;
+}
+.about-right img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.word1{
+	font-size: 20px;
+}
+.word2{
+	font-size: 17px;
+	color: #888;
+	margin-top: 37px;
+	margin-bottom: 23px;
+}
+.name{
+	font-size: 11px;
+	font-weight: bold;
+}
+.number{
+	font-size: 11px;
+	margin-left: 400px;
+}
+.culunm{
+	width: 100%;
+	height: 10px;
+	background: #ccc;
+	border-radius: 5px;
+	margin-bottom: 30px;
+}
+.culunm1{
+	width: 80%;
+	height: 10px;
+	border-radius: 5px;
+	background: #000;
+}
+#q{
+	width: 90%;
+}
+#p{
+	margin-left: 450px;
+}
+#w{
+	width: 75%;
+}
+#o{
+	margin-left: 500px;
+}
+#e{
+	width: 93%;
+}
+#i{
+	margin-left: 430px;
+}
+#r{
+	width: 85%;
+}
+#a{
+	margin-bottom: 0px;
+}
+
+/* about me 结束 */
+
+/* 项目 开始 */
+.project{
+	height: auto;
+	overflow: hidden;
+	background: #F6F6F6;
+
+}
+.small-project{
+	background: #F6F6F6;
+	padding: 100px 0;
+}
+.icon{
+	width: 30px;
+	height: 30px;
+	margin: 0 auto;
+	text-align: center;
+	padding: 2px;  
+	transition: all 0.8s;
+}
+.icon:hover{
+	transform: translateY(-8px);
+}
+.small-project .icon{
+	font-size: 30px;
+}
+.word3{
+	font-size: 13px;
+	text-align: center;
+	margin-top: 24px;
+	line-height: 10px;
+	color: #333;
+}
+.word4{
+	font-size: 13px;
+	color: #888;
+	text-align: center;
+	margin-top: 15px;
+}
+.word5{
+	font-size: 13px;
+	color: #888;
+	text-align: center;
+}
+/* 项目 结束 */
+
+/* 投资组合  文本 开始 */
+.por-text{
+	height: auto;
+	overflow: hidden;
+	background: #fff;
+	padding-top: 90px;
+	padding-bottom: 30px;
+}
+.word88{
+	text-align: center;
+}
+.word6{
+	font-size: 12px;
+	color: #888;
+	margin-top: 30px;
+	text-align: center;
+}
+.word7{
+	font-size: 12px;
+	color: #888;
+	margin-top: 5px;
+	text-align: center;
+}
+.word8{
+	text-align: center;
+	margin-top: 40px;
+}
+.word9{
+    font-size: 10px;
+    color: #888;
+}
+/* 投资组合 文本 结束 */
+
+/* 投资组合 图片 开始 */
+.pro-pic{
+	height: auto;
+	overflow: hidden;
+	background: #fff;
+	padding-bottom: 90px;
+}
+.pic2{
+	background: #fff;
+	position: relative;
+}
+.shadow{
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: all 0.8s;
+}
+.serch{
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background: #fff;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto auto;
+	opacity: 0;
+	transition: all 0.6s;
+}
+.serch1{
+	display: block;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	background: #fff;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	transition: all 0.6s;
+}
+.pic2 .icon-sousuo{
+	font-size: 30px;
+	text-align: center;
+	line-height: 50px;
+}
+.pic2:hover .shadow{
+	opacity: 1;
+}
+.pic2:hover .serch{
+	opacity: 1;
+	transform: rotateY(180deg);
+}
+.pic2:hover .serch1{
+	opacity: 1;
+	transform: rotateY(180deg);
+}
+.pic2 img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+#vv{
+	padding-top: 30px;
+}
+#nn{
+	margin-top: -80px;
+}
+/* 投资图片 结束 */
+
+/* unkown 开始 */
+/* 文字 开始 */
+.un-text{
+	height: auto;
+	overflow: hidden;
+	background: #F6F6F6;
+	padding-top: 90px;
+}
+.word10{
+	text-align: center;
+}
+.word11{
+	text-align: center;
+	font-size: 12px;
+	color: #888;
+	margin-top: 30px;
+}
+.word12{
+	text-align: center;
+	font-size: 12px;
+	color: #888;
+	padding-bottom: 40px;
+}
+/* 文字 结束 */
+
+/* 图片 开始 */
+.un-pic{
+	height: auto;
+	overflow: hidden;
+	background: #F6F6F6;
+}
+.pic3{
+	display: block;
+    background: #F6F6F6;
+    padding-bottom: 80px;
+}
+.word13{
+	width: 50px;
+	height: 50px;
+	background: red;
+	margin: 0 auto;
+}
+.word13 img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.word14{
+	text-align: center;
+	color: #000;
+}
+/* 图片 结束 */
+/* un 结束 */
+
+/* 博客 文字 开始 */
+.latest{
+	height: auto;
+	overflow: hidden;
+	background: #fff;
+	padding-bottom: 40px;
+	padding-top: 90px;
+}
+.word20{
+    text-align: center;
+}
+.word21{
+	text-align: center;
+	color: #888;
+	font-size: 14px;
+	margin-top: 30px;
+}
+.word22{
+	text-align: center;
+	color: #888;
+	font-size: 14px;
+}
+/* 图片 开始 */
+.latest2{
+	height: auto;
+	overflow: hidden;
+	background: #fff;
+/* 	padding-bottom: 40px; */
+	margin-bottom: 40px;
+}
+.pic5{
+	display: block;
+	background: #fff;
+	margin-bottom: 30px;
+}
+.big-la-box{
+	height: auto;
+	overflow: hidden;
+	box-shadow: 0 0 4px 4px #ccc;
+
+}
+.pic5 img{
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.word23{
+	text-align: center;
+	color: #000;
+}
+.word24{
+/* 	text-align: center; */
+    margin-left: 22px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #888;
+}
+h5{
+	margin-left: 22px;
+	margin-top: 20px;
+	color: #616161;
+}
+.botton{
+	height: auto;
+	overflow: hidden;
+}
+.botto{
+	display: block;
+	width: 162px;
+	height: 47px;
+	background: #fff;
+	border: 2px solid #000;
+	margin: 0 auto;
+	border-radius: 20px;
+	text-align: center;
+	line-height: 47px;
+	color: #000;
+	font-size: 10px;
+	font-weight: bold;
+	transition: all  0.3s;
+    margin-bottom: 78px;
+}
+.botto:hover{
+	background: #000;
+	color: #fff;
+	box-shadow: 0 0 3px 7px ;
+
+}
+.word66{
+	color: #fff;
+}
+/* 图片 结束 */
+@media screen and (max-width:768px){
+    .about-left{
+    	margin-bottom: 40px;
+    }
+    .small-project{
+    	padding: 20px 0 0 0;
+    }
+    .pic5{
+    	margin-bottom:30px;
+    }
+    .row .small-project:nth-child(4){
+    	padding-bottom: 100px;
+    }
+    .pic2{
+    	margin-bottom: 30px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px){
+    .about-left{
+    	margin-bottom: 40px;
+    }
+    .small-project{
+    	padding: 30px 0 0 0;
+    }
+    .row .small-project:nth-child(3){
+    	padding-bottom: 100px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px){
+    .small-project{
+    	padding: 100px 0;
+    }
+}
+
+@media screen and (min-width: 1200px){
+
+}
