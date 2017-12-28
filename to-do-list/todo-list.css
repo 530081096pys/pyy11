@@ -1,0 +1,65 @@
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    box-sizing: border-box;
+}
+.box{
+    width:400px;
+    height: auto;
+    margin:20px auto;
+    overflow: hidden;
+
+}
+input[type='text']{
+    width:100%;
+    height:30px;
+}
+.list{
+    width:100%;
+    height: auto;
+}
+.list>li{
+    margin-top: 10px;
+    width:100%;
+    height:25px;
+    /*border: 1px solid #cccccc;*/
+}
+.sta{
+    width:10px;
+    height:10px;
+    float: left;
+    border-radius: 50%;
+    border:1px solid #000000;
+    margin-top: 8px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.list>li>div>p{
+    float:left;
+    margin-left: 8px;
+    line-height: 25px;
+}
+.del{
+    float:right;
+    line-height: 25px;
+    cursor: pointer;
+}
+input[type='submit']{
+    float:right;
+    margin-top: 8px;
+    margin-left: 8px;
+}
+.smallbox{
+    overflow: hidden;
+}
+.check{
+    color: red;
+}
+.red{
+    background-color: red;
+}
+.aaa{
+    width:100%;
+    height: 25px;
+}

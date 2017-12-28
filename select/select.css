@@ -1,0 +1,34 @@
+*{
+    padding:0;
+    margin:0;
+    list-style: none;
+}
+.sbox{
+    width:300px;
+    height: auto;
+    margin:auto;
+    padding:10px;
+}
+.sinput{
+    width:100%;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    padding:5px;
+}
+input{
+    padding:0;
+    margin:0;
+    outline: none;
+    border:none;
+}
+.slist{
+    width:100%;
+    height: auto;
+    margin-top: 20px;
+}
+.slist>li{
+    margin-top: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #000000;
+}

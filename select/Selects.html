@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="select.css">
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="sbox">
+            <sinput @changeinput="aa" :title="title">
+                <h3 slot="head">头部</h3>
+            </sinput>
+            <slist :datas="datas" :status="status" @changelist="bb" color="red"></slist>
+        </div>
+    </div>
+    <script src="select-sc.js"></script>
+    <script src="select-pc.js"></script>
+</body>
+</html>

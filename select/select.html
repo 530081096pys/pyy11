@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+</head>
+<style>
+    *{
+        padding:0;
+        margin:0;
+        list-style: none;
+    }
+    .sbox{
+        width:300px;
+        height: auto;
+        margin:auto;
+        padding:10px;
+    }
+    .sinput{
+        width:100%;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid #cccccc;
+        padding:5px;
+    }
+    input{
+        padding:0;
+        margin:0;
+        outline: none;
+        border:none;
+    }
+    .slist{
+        width:100%;
+        height: auto;
+        margin-top: 20px;
+    }
+    .slist>li{
+        margin-top: 8px;
+        cursor: pointer;
+        border-bottom: 1px solid #000000;
+    }
+</style>
+<body>
+    <div id="app">
+        <div class="sbox">
+            <div class="sinput">
+                <input type="text" @focus="focus" v-model="title">
+            </div>
+            <ul class="slist" v-show="status">
+                <li v-for="item in datas" @click="change(item.title)">
+                    {{item.title}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                datas:[{
+                    title:1111,
+                    id:1
+                },
+                    {
+                        title:222,
+                        id:2
+                    },
+                    {
+                        title:333,
+                        id:3
+                    }
+                ],
+                status:false,
+                title:'',
+            },
+            methods:{
+                focus(){
+                    this.status = true;
+                },
+                change(val){
+                    this.title = val;
+                    this.status = false;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
