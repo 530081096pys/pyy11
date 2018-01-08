@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/notes.css">
+    <link rel="stylesheet" href="css/md.css">
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tween.js@16.3.4"></script>
+
+</head>
+<body>
+    <div id="root">
+        <nav>
+            <p>{{title}}</p>
+            <router-link to="/" class="note" exact>概念笔记</router-link>
+            <router-link to="/practice" class="note practice" exact>写作练习</router-link>
+        </nav>
+        <transition mode="out-in">
+            <router-view></router-view>
+        </transition>
+    </div>
+    <script src="js/component.js"></script>
+    <script src="js/note-router.js"></script>
+    <script src="js/notes.js"></script>
+</body>
+</html>
